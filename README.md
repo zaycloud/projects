@@ -19,6 +19,8 @@ Istället för manuell konfiguration ("ClickOps"), använder detta projekt modul
 
 ## Arkitektur
 
+![Architecture Diagram](./architecture-diagram.png)
+
 Systemet är uppbyggt i lager:
 
 1.  **Network Layer (`modules/network`):**
