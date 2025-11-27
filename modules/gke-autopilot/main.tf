@@ -22,7 +22,21 @@ resource "google_container_cluster" "primary" {
 
   private_cluster_config {
     enable_private_nodes    = true
-    enable_private_endpoint = false
+    enable_private_endpoint = true
+  }
+
+  master_auth {
+    client_certificate_config {
+      issue_client_certificate = false
+    }
+  }
+
+  pod_security_policy_config {
+    enabled = true
+  }
+
+  resource_labels = {
+    environment = "production"
   }
   
   deletion_protection = false

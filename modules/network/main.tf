@@ -14,6 +14,12 @@ resource "google_compute_subnetwork" "subnet" {
   network       = google_compute_network.vpc.id
   ip_cidr_range = "10.0.0.0/20"
 
+  log_config {
+    aggregation_interval = "INTERVAL_5_SEC"
+    flow_sampling        = 0.5
+    metadata             = "INCLUDE_ALL_METADATA"
+  }
+
   secondary_ip_range {
     range_name    = "pods"
     ip_cidr_range = "10.1.0.0/16"
